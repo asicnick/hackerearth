@@ -1,0 +1,32 @@
+Problem statement:
+Create a program which can multiply N numbers.
+
+Constraints:
+0 > N =< 1000
+
+*Dimension of numbers: *
+Each input number will be less than 1000.
+
+Input format:
+NUMBER OF ELEMENTS
+e1
+e2
+e3
+.
+.
+eN
+
+Output format:
+result
+
+Example:
+Input:
+5
+1
+2
+3
+4
+5
+
+Output:
+120
