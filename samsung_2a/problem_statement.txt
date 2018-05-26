@@ -1,0 +1,57 @@
+Unlock Pattern
+
+Boogle, the software giant developed a mobile operating system named Ambroid. As we all know, in order to unlock an Ambroid device, one needs to draw a pattern connecting the given dots. The developers of Ambroid OS want this pattern unlock to be more secure. So they are wondering, in how many ways, can we draw a pattern by connecting dots.
+
+Given N points (dots) in the co-ordinate system, find and return the number of ways in which, we can draw a pattern by connecting dots.
+
+A pattern is a sequence of distinct dots where two adjacent dots in the sequence are connected by a line segment and should satisfy following conditions.
+
+    A pattern should connect at least two dots.
+    While connecting two dots A and B, suppose there is a dot C which has not yet been connected and lies on the line segment joining A and B, then you cannot connect A and B without connecting C in between, that is, pattern A-C-B and pattern B-C-A are valid but the patterns A-B or B-A are not valid as C has not yet been connected.
+    Note that patterns C-A-B and C-B-A are also valid as while connecting A-B or B-A in these patterns, C has already been connected.
+
+Eg : Suppose A(0,0) , B(0,2), C(2,0) and D(1,1) be the four dots. Then A-C-B is not a valid pattern because while connecting C and B, D lies in between which has not yet been connected. Note that D-A-C-B is a valid pattern (because D has already been connected)
+
+Input
+First line consists of an integer N which denotes the number of points (dots).
+Each of next N lines contains two space separated integers (denoting a point): first integer represents the x coordinate and second represents y coordinate of the point.
+
+Output
+Print the answer as described in the problem statement.
+
+Constraints
+N <= 16
+N >= 2
+
+x,y >= 0
+x,y <= 200
+
+All points are distinct
+Sample Input
+
+3
+
+0 0
+
+1 0
+
+2 0
+
+Sample Output
+
+8
+
+Explanation
+
+let the points be A(0,0) and B(1,0) and C(2,0).
+
+<refer image>
+
+Then following are valid patterns.
+A-B
+A-B-C
+B-A
+B-A-C (since B is already connected)
+B-C-A (since B is already connected)
+C-B
+C-B-A 
