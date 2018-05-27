@@ -168,12 +168,14 @@ int command_interpreter(char** general_buffer, char* copy_buffer) {
 
 		// Copy and Delete
 		else if ((!(strcmp("dy", query)))) {
+			copy_buffer = (char*)malloc(sizeof(char)*(strlen(general_buffer[buf_ptr]) + 1));
 			query_response = copy_str(general_buffer, copy_buffer, buf_ptr, &valid_paste);
 			query_response = delete_str(general_buffer, &buf_ptr, &position, &cur_buf_size, line_table);
 		}
 
 		// Copy
 		else if ((!(strcmp("y", query)))) {
+			copy_buffer = (char*)malloc(sizeof(char)*(strlen(general_buffer[buf_ptr]) + 1));
 			query_response = copy_str(general_buffer, copy_buffer, buf_ptr, &valid_paste);
 		}
 
@@ -205,6 +207,7 @@ int command_interpreter(char** general_buffer, char* copy_buffer) {
 
 	query_response = print(line_table, &cur_buf_size);
 
+	//TODO: Fix the memory deallocation.
 	for (int i = 0; i < cur_buf_size; i++)
 		free(general_buffer[i]);
 
@@ -279,7 +282,7 @@ int delete_str(char** general_buffer, int* buf_ptr, int* position, int* cur_buf_
 
 // Copy string.
 int copy_str(char** general_buffer, char* copy_buffer, int buf_ptr, int* valid_paste){
-	memcpy(copy_buffer, general_buffer[buf_ptr], strlen(general_buffer[buf_ptr]) *sizeof(char));
+	memcpy(copy_buffer, general_buffer[buf_ptr], (strlen(general_buffer[buf_ptr]) + 1)*sizeof(char));
 	*valid_paste = 1;
 	return 0;
 }
@@ -294,6 +297,7 @@ int paste_str(char** general_buffer, char* copy_buffer, int buf_ptr, int* positi
 	  *position = strlen(general_buffer[buf_ptr]);
 	  *valid_paste = 0;
 
+	  free(copy_buffer);
 	  return 0;
     }
 
