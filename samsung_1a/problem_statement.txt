@@ -28,6 +28,10 @@ Output :
     Print the final text T after applying the Q commands.
 
 Constraints :
+  0 < N <= 100
+  0 < T <= 1100
+  0 < Q <= 100
+
 
 Sample Input
 
